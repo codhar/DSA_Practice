@@ -1,15 +1,15 @@
 package com.scalar.introProbSolve;
 
 public class NumberOfOneBits {
-	public static void main(String args[]) {
-		int result = 0;
-		int A = 15;
-		/*
-		 * while (A > 0) { if ((A/2) > 0) { result++; } A = A/2; }
-		 */
-		int i = A& 1;
-        System.out.println("mod of number "+ i);
-	}
+    public static void main(String args[]) {
+        int result = 0;
+        int A = 15;
+        /*
+         * while (A > 0) { if ((A/2) > 0) { result++; } A = A/2; }
+         */
+        int i = A & 1;
+        System.out.println("mod of number " + i);
+    }
 
 }
 /*

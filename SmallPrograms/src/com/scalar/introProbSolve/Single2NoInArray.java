@@ -5,39 +5,40 @@ import java.util.Collections;
 import java.util.List;
 
 public class Single2NoInArray {
-	public ArrayList<Integer> solve(ArrayList<Integer> A) {
+    private static Integer xorArray(List<Integer> a) {
+        Integer result = 0;
+        for (Integer i : a) {
+            result = result ^ i;
+        }
+        return result;
+    }
+
+    public ArrayList<Integer> solve(ArrayList<Integer> A) {
         Integer result = xorArray(A);
-        
+
         ArrayList<Integer> zeroInt = new ArrayList<Integer>();
         ArrayList<Integer> oneInt = new ArrayList<Integer>();
         ArrayList<Integer> resultList = new ArrayList<Integer>();
-        int k =0 ;
-        for(int i =0 ; i<8 ; i++) {
-        	if((result & (1 << i)) != 0){
-            	k=i;
+        int k = 0;
+        for (int i = 0; i < 8; i++) {
+            if ((result & (1 << i)) != 0) {
+                k = i;
             }
         }
-        for(Integer i : A) {
-        	if((i & (1 << k)) != 0) {
-        		zeroInt.add(i);
-        	}else {
-        		oneInt.add(i);
-        	}
-        }  
-        
+        for (Integer i : A) {
+            if ((i & (1 << k)) != 0) {
+                zeroInt.add(i);
+            } else {
+                oneInt.add(i);
+            }
+        }
+
         resultList.add(xorArray(zeroInt));
         resultList.add(xorArray(oneInt));
         Collections.sort(resultList);
-               
+
         return resultList;
     }
-    private static Integer xorArray(List<Integer> a) {
-		Integer result = 0;
-        for(Integer i : a){
-            result =  result ^ i;
-        }
-        return result;
-	}
 }
 /*
  * Problem Description
