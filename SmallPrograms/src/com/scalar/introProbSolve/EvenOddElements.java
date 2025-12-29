@@ -3,27 +3,27 @@ package com.scalar.introProbSolve;
 import java.util.Scanner;
 
 public class EvenOddElements {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         // YOUR CODE GOES HERE
         // Please take input and print output to standard input/output (stdin/stdout)
         // DO NOT USE ARGUMENTS FOR INPUTS
         // E.g. 'Scanner' for input & 'System.out' for output
         Scanner sc = new Scanner(System.in);
         int numberOfItr = sc.nextInt();
-        for (int i=0;i<numberOfItr;i++){
+        for (int i = 0; i < numberOfItr; i++) {
             int numberStr = sc.nextInt();
-            
-            int odd =0;
-            int even =0;
-            for(int j=0 ; j< numberStr;j++){
+
+            int odd = 0;
+            int even = 0;
+            for (int j = 0; j < numberStr; j++) {
                 // intNo[j] = Integer.valueOf(strNo[j]);
-                if( (sc.nextInt()%2) == 0){
+                if ((sc.nextInt() % 2) == 0) {
                     even++;
-                }else{
+                } else {
                     odd++;
-                }            
+                }
             }
-            System.out.println (Math.abs(even-odd));
+            System.out.println(Math.abs(even - odd));
 
         }
         sc.close();
