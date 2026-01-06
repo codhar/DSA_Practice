@@ -1,47 +1,39 @@
 package com.scalar.introProbSolve;
 
 public class AddBinaryString {
-    public static void main(String args[]) {
-        AddBinaryString test = new AddBinaryString();
-        System.out.println(test.addBinary("1", "1"));
-    }
-
-    private static String appendZero(int noOfZero, String str) {
-        String zeroStr = "";
-        for (int i = 0; i < noOfZero; i++) {
-            zeroStr = zeroStr + "0";
-        }
-        return zeroStr + str;
-    }
-
-    public String addBinary(String A, String B) {
+	public static void main(String args[]) {
+		AddBinaryString test = new AddBinaryString();
+		System.out.println(test.addBinary("1", "1"));
+	}
+	
+	public String addBinary(String A, String B) {
         int aSize = A.length();
         int bSize = B.length();
         int maxLength = 0;
-
-        if (aSize > bSize) {
-            B = appendZero(aSize - bSize, B);
-            maxLength = aSize;
+        
+        if(aSize > bSize) {
+        	B = appendZero(aSize-bSize, B);
+        	maxLength = aSize;
         }
-        if (bSize > aSize) {
-            A = appendZero(bSize - aSize, A);
-            maxLength = bSize;
+        if(bSize > aSize) {
+        	A = appendZero(bSize-aSize, A);
+        	maxLength = bSize;
         }
-        if (bSize == aSize) {
-            maxLength = bSize;
+        if(bSize == aSize) {
+        	maxLength = bSize;
         }
         String result = "";
-        int carry = 0;
-        for (int i = maxLength - 1; i >= 0; i--) {
-            int sum = ((A.charAt(i) - '0') + (B.charAt(i) - '0') + carry) % 2;
-            carry = ((A.charAt(i) - '0') + (B.charAt(i) - '0') + carry) / 2;
-            if (sum == 0) {
-                result = '0' + result;
-            }
-            if (sum == 1) {
-                result = '1' + result;
-            }
-
+        int  carry = 0;
+        for (int i =maxLength-1; i >= 0 ;i--) {
+        	int sum  = ( (A.charAt(i) - '0') + (B.charAt(i) - '0') + carry ) % 2;
+        	carry = ( (A.charAt(i) - '0') + (B.charAt(i) - '0') + carry ) / 2;
+        	if(sum == 0) {
+        		result = '0' + result  ;
+        	}
+        	if (sum ==1) {
+        		result = '1' + result  ;
+        	}
+        	
         	/*if(A.charAt(i) == '1' && B.charAt(i) == '1') {
         		if(carry == '1') {
         			result = '1' + result  ;
@@ -70,11 +62,19 @@ public class AddBinaryString {
         	}*/
         }
         if (carry == 1) {
-            result = '1' + result;
+        	result =  '1' + result ;
         }
-
+        
         return result;
     }
+	
+	private static String appendZero(int noOfZero, String str) {
+		String zeroStr = "";
+		for(int i =0 ; i< noOfZero ; i++) {
+			zeroStr = zeroStr + "0";
+		}
+		return zeroStr + str;
+	}
 }
 /*
  * Problem Description
